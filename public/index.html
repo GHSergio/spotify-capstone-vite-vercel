@@ -21,7 +21,9 @@
 
       function handlePath(path) {
         // 根據路徑執行相應邏輯，例如處理授權回調
-        if (path.startsWith("/capstone-test-ghpage/callback")) {
+        if (
+          path.startsWith("/spotify-capstone-vite-vercel.vercel.app/callback")
+        ) {
           // 執行回調邏輯
           handleSpotifyCallback();
         }
