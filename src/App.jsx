@@ -3,15 +3,15 @@ import { Login, Callback, Main } from "./pages";
 import PodcastListContext from "./contexts/PodcastListContext";
 import PrivateRoute from "./components/PrivateRoute";
 
-const basename = import.meta.env.VITE_BASENAME;
-console.log("basename:", basename);
+// const basename = import.meta.env.VITE_BASENAME;
+// console.log("basename:", basename);
 
 function App() {
   return (
     <>
       <PodcastListContext>
-        <BrowserRouter basename={basename}>
-          {/* <BrowserRouter> */}
+        {/* <BrowserRouter basename={basename}> */}
+        <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/callback" element={<Callback />} />
