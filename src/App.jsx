@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login, Callback, Main } from "./pages";
 import PodcastListContext from "./contexts/PodcastListContext";
-// import UserContext from "./contexts/UserContext";
 import PrivateRoute from "./components/PrivateRoute";
 
 const basename = import.meta.env.VITE_BASENAME;
@@ -10,7 +9,6 @@ console.log("basename:", basename);
 function App() {
   return (
     <>
-      {/* <UserContext> */}
       <PodcastListContext>
         <BrowserRouter basename={basename}>
           {/* <BrowserRouter> */}
@@ -36,7 +34,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </PodcastListContext>
-      {/* </UserContext> */}
     </>
   );
 }

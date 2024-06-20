@@ -21,9 +21,7 @@
 
       function handlePath(path) {
         // 根據路徑執行相應邏輯，例如處理授權回調
-        if (
-          path.startsWith("/spotify-capstone-vite-vercel.vercel.app/callback")
-        ) {
+        if (path.startsWith("/vite-vercel-phi-seven.vercel.app/callback")) {
           // 執行回調邏輯
           handleSpotifyCallback();
         }
@@ -46,7 +44,9 @@
           .then((data) => {
             localStorage.setItem("spotifyData", JSON.stringify(data));
             // 完成後重定向到 main 頁面
-            window.location.replace("/capstone-test-ghpage/main.html");
+            window.location.replace(
+              "/vite-vercel-phi-seven.vercel.app/main.html"
+            );
           })
           .catch((error) => {
             console.error("Error:", error);

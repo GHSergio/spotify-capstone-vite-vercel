@@ -49,7 +49,7 @@ export default defineConfig(({ mode }) => {
         "@": path.resolve("./src"),
       },
     },
-
+    base: "/",
     build: {
       outDir: "dist", // 默认构建输出目录是 'dist'
       target: "esnext", // 設置目標環境為 esnext
