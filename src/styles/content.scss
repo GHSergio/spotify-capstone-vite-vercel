@@ -1,0 +1,144 @@
+.content-container {
+  position: relative;
+  height: 100%;
+  width: 808px;
+  display: flex;
+  flex-direction: column;
+  /* 早安 */
+  h1 {
+    position: absolute;
+    width: 65px;
+    height: 48px;
+    left: 24px;
+    top: 40px;
+    font-family: "Noto Sans TC";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.2px;
+    color: #000000;
+    margin: 0;
+  }
+}
+
+// default
+.default {
+  position: absolute;
+  top: 104px;
+  left: 214px;
+  width: 379px;
+  height: 182px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 56px;
+    height: 56px;
+  }
+  span {
+    width: 379px;
+    height: 26px;
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 26px;
+    text-align: center;
+    color: #718096;
+  }
+  .button-add {
+    position: absolute;
+    top: 142px;
+    left: 94px;
+    width: 191px;
+    height: 44px;
+    background-color: #ff7f50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border-style: none;
+    cursor: pointer;
+    p {
+      width: 95px;
+      height: 23px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 23.17px;
+      color: #ffffff;
+    }
+  }
+}
+
+//card
+.card-list-container {
+  margin: 96px 16px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(178px, 1fr));
+  grid-gap: 16px;
+  flex-wrap: wrap;
+
+  .card-container {
+    width: 178px;
+    height: 266px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 24px 8px 24px 8px rgba(199, 199, 199, 0.24);
+    border-radius: 8px;
+    .card-wrapper {
+      margin: 16px;
+    }
+  }
+}
+
+.card-cover {
+  width: 144px;
+  height: 144px;
+  .card-cover-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+}
+
+.card-content {
+  width: 145px;
+  height: 41px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  .card-content-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #141416;
+    margin: 0;
+    white-space: nowrap; /* 防止文本換行 */
+    overflow: hidden; /* 隱藏超出容器的文本 */
+    text-overflow: ellipsis; /* 顯示省略號 */
+  }
+  .card-content-type {
+    font-weight: 400;
+    font-size: 12px;
+    color: #93989a;
+    margin: 4px 0;
+  }
+}
+
+.button-more {
+  width: 44px;
+  height: 28px;
+  border-style: none;
+  background: #30a9de;
+  color: #ffffff;
+  border-radius: 4px;
+
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}

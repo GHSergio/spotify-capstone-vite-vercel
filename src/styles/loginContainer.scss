@@ -1,0 +1,249 @@
+$inactive-color: rgba(255, 255, 255, 0.5);
+$active-color: rgba(255, 255, 255);
+
+$background-1: #23262f;
+$background-2: #2d3831;
+$background-3: #063540;
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+//Login
+.login-container {
+  display: flex;
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+  background: #ffffff;
+  text-align: center;
+}
+
+//Left
+.left-container {
+  height: 100%;
+  width: 50%;
+}
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  .logo-container {
+    position: absolute;
+    width: 255px;
+    height: 25px;
+    left: 256px;
+    top: 420px;
+    svg {
+      padding: 2px;
+    }
+  }
+  span {
+    position: absolute;
+    width: 282px;
+    height: 19px;
+    left: 243px;
+    top: 461px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 18px;
+    color: #111111;
+  }
+
+  .login-button {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 25px 126px;
+    gap: 10px;
+    width: 423px;
+    height: 73px;
+    left: 172px;
+    top: 520px;
+    background: #1ed760;
+    border: none;
+    border-radius: 16px;
+    .button-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 175px;
+      height: 23px;
+      font-family: "Noto Sans TC";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 0px;
+      text-transform: uppercase;
+      color: #f3f5f6;
+      cursor: pointer;
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+  }
+
+  p {
+    position: absolute;
+    width: 180px;
+    height: 23px;
+    left: 304px;
+    top: calc(50% - 23px / 2 + 117.5px);
+    font-family: "Noto Sans TC";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    // font-weight: 900;
+    line-height: 23px;
+    color: #3e3e3e;
+    cursor: pointer;
+  }
+  a {
+    font-family: 700;
+  }
+}
+.copyright {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 439px;
+
+  position: absolute;
+  width: 126px;
+  height: 18px;
+  left: 321px;
+  top: 966px;
+
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 150%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.2px;
+
+  color: #aaaaaa;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+//Right
+.right-container {
+  width: 50%;
+  height: 100%;
+}
+
+.SideIllustration {
+  width: 100%;
+  height: 100%;
+  background: $background-1;
+  position: relative;
+}
+
+.font {
+  position: absolute;
+  width: 424px;
+  height: 424px;
+  top: 103px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 54px;
+}
+
+.shadow {
+  position: absolute;
+  width: 424px;
+  height: 424px;
+  top: 127px;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 24px;
+  box-shadow: 0px 0px 0px 3px rgb(255, 255, 255, 0.7);
+  filter: blur(15.8502px);
+}
+
+.content {
+  position: absolute;
+  width: 380px;
+  height: 109px;
+  top: 582px;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  justify-content: center;
+  .title {
+    font-family: "Noto Sans TC";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 61px;
+  }
+  .text {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+// controller
+.controller {
+  position: absolute;
+  width: 676px;
+  height: 395px;
+  top: 492px;
+  left: 50%;
+  transform: translate(-50%);
+  .arrow-left {
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    bottom: 100%;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  .arrow-right {
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    background: #ffffff;
+    bottom: 100%;
+    cursor: pointer;
+  }
+  .counters {
+    position: absolute;
+    width: 112px;
+    height: 4px;
+    left: 283px;
+    bottom: 0px;
+    display: flex;
+    .counter {
+      width: 32px;
+      height: 4px;
+      left: 323px;
+      top: 391px;
+      margin: 3px;
+      background: $inactive-color;
+      border-radius: 8px;
+    }
+    .active {
+      background: $active-color;
+    }
+  }
+}

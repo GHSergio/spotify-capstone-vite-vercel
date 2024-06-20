@@ -1,0 +1,248 @@
+.footer {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.user-container {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  width: 184px;
+  height: 48px;
+  background-color: #ece3e3;
+  border-radius: 5px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.user-container .user-wrapper {
+  width: 134px;
+  height: 48px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.user-container .user-wrapper .user-avatar {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.user-container .user-wrapper .avatar-placeholder {
+  font-size: 25px;
+  background-color: rgb(21, 231, 21);
+  padding: 5px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: white;
+}
+.user-container .user-wrapper .user-name {
+  width: 74px;
+  height: 24px;
+  font-family: Noto Sans TC;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  color: #111111;
+}
+.user-container .chevron-down {
+  width: 16px;
+  height: 16px;
+  line-height: 8px;
+  cursor: pointer;
+}
+
+.logout-dropdown {
+  position: absolute;
+  top: 70px;
+  right: 1rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logout-dropdown button {
+  width: 100%;
+  height: 100%;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout-dropdown button:hover {
+  background-color: #2980b9;
+}
+
+.player-container {
+  position: absolute;
+  right: 60px;
+  top: 104px;
+  height: 596px;
+  box-shadow: 16px 16px 40px rgba(199, 199, 199, 0.24);
+  border-radius: 16px;
+}
+.player-container .player-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 32px 32px 32px;
+}
+
+.player-bookmark {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.player-bookmark .bookmark {
+  color: #ff7f50;
+  cursor: pointer;
+}
+.player-bookmark .playing {
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 35px;
+  color: #1a202c;
+}
+
+/* divider */
+hr {
+  width: 248px;
+  height: 1px;
+  background: #e2e8f0;
+  border-style: none;
+  margin: -3px 0px 0px 0px;
+}
+
+.player-content {
+  width: 248px;
+}
+.player-content .player-content-title {
+  /* Title */
+  height: 64px;
+  width: 230px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #111111;
+}
+.player-content .player-content-text {
+  /* Description */
+  height: 36px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: #718096;
+}
+
+.player-spotify-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 348px;
+  background: #91b4c1;
+  border-radius: 16px;
+}
+.player-spotify-container .player-spotify-wrapper {
+  margin: 48px 32px 116px 32px;
+}
+
+.spotify-logo {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 16px;
+  top: 16px;
+  padding: 0.04px 0.04px 0.03px 0.04px;
+}
+
+.spotify-img img {
+  width: 184px;
+  height: 184px;
+  border-radius: 8px;
+  filter: drop-shadow(4px 8px 16px rgba(0, 0, 0, 0.12));
+}
+
+.spotify-content {
+  display: flex;
+  flex-direction: column;
+  width: 184px;
+  margin-top: 24px;
+}
+.spotify-content .spotify-content-title {
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+.spotify-content .spotify-content-date {
+  font-family: "Noto Sans TC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.spotify-controller-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+.spotify-controller-container .controller-back {
+  cursor: pointer;
+}
+.spotify-controller-container .controller-time {
+  line-height: 0px;
+  cursor: pointer;
+}
+.spotify-controller-container .controller-fast {
+  cursor: pointer;
+}
+.spotify-controller-container .controller-more {
+  line-height: 0px;
+  cursor: pointer;
+}
+.spotify-controller-container .icon-player {
+  line-height: 16px;
+  cursor: pointer;
+}
+
+#embed-iframe {
+  width: 248px;
+  height: 450px;
+  border-style: none;
+}/*# sourceMappingURL=footer.css.map */
