@@ -12,6 +12,8 @@ export default defineConfig(({ mode }) => {
     server: {
       host: "localhost",
       port: 3000,
+      base: "/",
+      open: true,
       proxy: {
         "/spotify-api": {
           // target: import.meta.env.VITE_SPOTIFY_API_BASE_URI,
@@ -49,7 +51,6 @@ export default defineConfig(({ mode }) => {
         "@": path.resolve("./src"),
       },
     },
-    base: "/",
     build: {
       outDir: "dist", // 默认构建输出目录是 'dist'
       target: "esnext", // 設置目標環境為 esnext
