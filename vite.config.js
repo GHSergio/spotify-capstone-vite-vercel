@@ -10,16 +10,12 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     server: {
-      // hmr: {
-      //   overlay: false,
-      // },
-      host: "localhost", // 替換為你想要的主機名
-      port: 3000, // 替換為你想要的端口號
+      host: "localhost",
+      port: 3000,
       proxy: {
         "/spotify-api": {
           // target: import.meta.env.VITE_SPOTIFY_API_BASE_URI,
           target: env.VITE_SPOTIFY_API_BASE_URI,
-
           changeOrigin: true,
           secure: false,
           rewrite: (path) => path.replace(/^\/spotify-api/, ""),
@@ -45,6 +41,7 @@ export default defineConfig(({ mode }) => {
       loader: "jsx",
       include: /src\/.*\.jsx?$/, // 匹配所有在src目錄下的.js和.jsx文件
       exclude: [],
+      target: "esnext", // 設置目標環境為 esnext
     },
 
     resolve: {
@@ -55,6 +52,7 @@ export default defineConfig(({ mode }) => {
 
     build: {
       outDir: "dist", // 默认构建输出目录是 'dist'
+      target: "esnext", // 設置目標環境為 esnext
     },
 
     optimizeDeps: {
