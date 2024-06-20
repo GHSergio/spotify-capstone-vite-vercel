@@ -177,8 +177,7 @@ const Main = () => {
             onClick={() => handleActionClick("add")}
           >
             <div className="list-item-content">
-              <AddIcon />
-              <p className="list-item-title">新增分類</p>
+              ➕<p className="list-item-title">新增分類</p>
             </div>
           </li>
         </ul>
