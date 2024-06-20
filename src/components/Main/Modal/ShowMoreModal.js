@@ -1,4 +1,5 @@
-import "../../../styles/showMoreModal.scss";
+// import "../../../styles/showMoreModal.scss";
+import "../../../styles/showMoreModal.css";
 import { usePodcastList } from "../../../contexts/PodcastListContext";
 import ListItem from "../ListItem";
 import { deleteFromCategory } from "../../../api/acRequest";

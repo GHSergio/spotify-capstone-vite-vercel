@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/content.scss";
+// import "../../styles/content.scss";
+import "../../styles/content.css";
 import Card from "./Card";
 import AddCardModal from "./Modal/AddCardModal";
 import ListItem from "./ListItem";

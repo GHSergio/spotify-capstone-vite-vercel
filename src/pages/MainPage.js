@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import "../styles/main.scss";
+// import "../styles/main.scss";
+import "../styles/main.css";
 import CardList from "../components/Main/CardList";
 import User from "../components/Footer/User";
 import Player from "../components/Footer/Player";

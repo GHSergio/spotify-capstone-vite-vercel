@@ -1,6 +1,7 @@
 import React from "react";
 import { usePodcastList } from "../../contexts/PodcastListContext";
-import "../../styles/favoriteList.scss";
+// import "../../styles/favoriteList.scss";
+import "../../styles/favoriteList.css";
 const ListItem = ({ item, handleClickListItem, handleClickPlayer }) => {
   const {
     favoriteList,

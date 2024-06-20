@@ -1,4 +1,5 @@
-import "../../styles/footer.scss";
+// import "../../styles/footer.scss";
+import "../../styles/footer.css";
 import React from "react";
 import { usePodcastList } from "../../contexts/PodcastListContext";
 import { PostFavorite, RemoveFavorite } from "../../api/acRequest.js";
