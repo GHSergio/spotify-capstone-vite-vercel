@@ -6,7 +6,6 @@ import User from "../components/Footer/User";
 import Player from "../components/Footer/Player";
 import NavigationItem from "../components/Main/NavigationItem";
 import { usePodcastList } from "../contexts/PodcastListContext";
-import { AddIcon } from "../components/FontAwesome/FontAwesome";
 // import { useUser } from "../contexts/UserContext";
 
 const Main = () => {
