@@ -1,12 +1,12 @@
-@charset "UTF-8";
+/* @charset "UTF-8";
 .content-container {
   position: relative;
-  height: 100%;
-  width: 808px;
+  height: 1024px;
+  min-width: 808px;
   display: flex;
   flex-direction: column;
-  /* 早安 */
 }
+
 .content-container h1 {
   position: absolute;
   width: 65px;
@@ -115,9 +115,9 @@
   font-size: 14px;
   color: #141416;
   margin: 0;
-  white-space: nowrap; /* 防止文本換行 */
-  overflow: hidden; /* 隱藏超出容器的文本 */
-  text-overflow: ellipsis; /* 顯示省略號 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card-content .card-content-type {
   font-weight: 400;
@@ -137,4 +137,5 @@
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-}/*# sourceMappingURL=content.css.map */
+} */
+/*# sourceMappingURL=content.css.map */

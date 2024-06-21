@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Card from "../Card";
 import { usePodcastList } from "../../../contexts/PodcastListContext";
 import { searchShows } from "../../../api/spotify";
-// import { addShowToCategory } from "../../../api/acRequest";
 
 const AddCardModal = ({ isOpen, onConfirm, onClose }) => {
   const [searchInput, setSearchInput] = useState("");
