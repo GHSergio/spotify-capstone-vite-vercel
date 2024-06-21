@@ -10,7 +10,7 @@ export const addTestData = async () => {
     if (error) {
       throw error;
     }
-    console.log("Test data inserted:", data);
+    // console.log("Test data inserted:", data);
     return { success: true, data: data };
   } catch (error) {
     console.error("插入測試數據失敗:", error);
@@ -31,7 +31,7 @@ export const getCategoryEmoji = async () => {
       console.error("Error fetching categoryEmoji:", error);
       throw error;
     }
-    console.log("Fetched categoryEmoji data:", data); // 添加這行以打印數據
+    // console.log("Fetched categoryEmoji data:", data);
     localStorage.setItem("categoryEmojiData", JSON.stringify(data));
     return { success: true, data: data };
   } catch (error) {

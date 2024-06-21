@@ -1,5 +1,5 @@
-// import "../../styles/footer.scss";
-import "../../styles/footer.css";
+import "../../styles/main.scss";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

@@ -6,17 +6,14 @@ import User from "../components/Footer/User";
 import Player from "../components/Footer/Player";
 import NavigationItem from "../components/Main/NavigationItem";
 import { usePodcastList } from "../contexts/PodcastListContext";
-// import { useUser } from "../contexts/UserContext";
 
 const Main = () => {
-  // const { setUserData } = useUser();
-
   const {
     categoryContent,
     setCategoryContent,
-    favoriteList,
+    // favoriteList,
     setFavoriteList,
-    activeList,
+    // activeList,
 
     handleNavigationItem,
 
@@ -50,9 +47,9 @@ const Main = () => {
       localStorage.getItem("categoryEmojiData")
     );
 
-    console.log("userFavoriteList:", userFavoriteList);
-    console.log("userCategoryContent:", userCategoryContent);
-    console.log("categoryEmojiData:", categoryEmojiData);
+    // console.log("userFavoriteList:", userFavoriteList);
+    // console.log("userCategoryContent:", userCategoryContent);
+    // console.log("categoryEmojiData:", categoryEmojiData);
 
     // setUserData(userProfileData); //使用者資訊
     setFavoriteList(userFavoriteList); //使用者收藏

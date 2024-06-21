@@ -31,7 +31,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [未完成](https://ghsergio.github.io/capstone-test-ghpage/)
+- Live Site URL: [前往專案網頁](vite-vercel-phi-seven.vercel.app)
 
 ## My process
 

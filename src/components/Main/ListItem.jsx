@@ -1,13 +1,10 @@
 import React from "react";
 import { usePodcastList } from "../../contexts/PodcastListContext";
-// import "../../styles/favoriteList.scss";
-// import "../../styles/favoriteList.css";
-// import "../../styles/main.css";
 import "../../styles/main.scss";
+import ReactTooltip from "react-tooltip";
 
 const ListItem = ({ item, handleClickListItem, handleClickPlayer }) => {
   const {
-    favoriteList,
     handleToggleFromBookmark,
     currentPlayer,
     convertMsToHoursAndMinutes,
@@ -23,7 +20,7 @@ const ListItem = ({ item, handleClickListItem, handleClickPlayer }) => {
   };
 
   // console.log("isFavorite:", isFavorite(activeEpisodeId));
-  // console.log(item && item.id);
+  // console.log("episode ID:", item && item.id);
 
   // console.log("currentPlayer:", currentPlayer);
   // console.log("activeEpisodeId:", activeEpisodeId);
@@ -40,7 +37,9 @@ const ListItem = ({ item, handleClickListItem, handleClickPlayer }) => {
             <img src={images[0].url} alt="" />
           </div>
           <div className="video-content">
-            <span className="title">{name}</span>
+            <span className="title" data-tip={name}>
+              {name}
+            </span>
             <span className="description">{description}</span>
             <div className="switch-wrapper">
               <div
@@ -109,6 +108,7 @@ const ListItem = ({ item, handleClickListItem, handleClickPlayer }) => {
           </div>
         </div>
       </div>
+      <ReactTooltip className="custom-tooltip" />
     </>
   );
 };

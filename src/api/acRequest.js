@@ -2,7 +2,7 @@ import axios from "axios";
 import { refreshToken } from "./Author";
 const baseUri = import.meta.env.VITE_AC_API_BASE_URI;
 // const baseUri = "https://spotify-backend.alphacamp.io";
-console.log("acAPI env:", baseUri);
+// console.log("acAPI env:", baseUri);
 
 const apiClient = axios.create({
   // baseURL: baseUri,
@@ -52,13 +52,13 @@ export const CreateAccount = async () => {
   try {
     const response = await axios.post(url, bodyParameters);
     const token = response.data.token;
-    console.log(
-      "acAPI帳戶創建成功",
-      "[id]:",
-      response.data.id,
-      "[token]:",
-      token
-    );
+    // console.log(
+    //   "acAPI帳戶創建成功",
+    //   "[id]:",
+    //   response.data.id,
+    //   "[token]:",
+    //   token
+    // );
     localStorage.setItem("acToken", token);
   } catch (err) {
     console.error("创建账户时发生错误:", err);
@@ -72,7 +72,7 @@ export const GetFavoriteIds = async () => {
   const url = `api/me`;
   try {
     const response = await apiClient.get(url);
-    console.log("用戶收藏清單:", response.data.favoriteEpisodeIds);
+    // console.log("用戶收藏清單:", response.data.favoriteEpisodeIds);
     localStorage.setItem(
       "userFavoriteList",
       JSON.stringify(response.data.favoriteEpisodeIds)
@@ -89,7 +89,7 @@ export const GetCategory = async () => {
   const url = `api/categories`;
   try {
     const response = await apiClient.get(url);
-    console.log("分類清單:", response.data.categories);
+    // console.log("分類清單:", response.data.categories);
     localStorage.setItem(
       "userCategoryContent",
       JSON.stringify(response.data.categories)
@@ -106,11 +106,11 @@ export const RemoveFavorite = async (episodeId) => {
   const url = `api/episodes/${episodeId}`;
   try {
     const response = await apiClient.delete(url);
-    console.log(
-      "RemoveFavorite:",
-      response,
-      "status 200 還出現error? 是為了測試?"
-    );
+    // console.log(
+    //   "RemoveFavorite:",
+    //   response,
+    //   "status 200 還出現error? 是為了測試?"
+    // );
     if (response.status === 200) {
       // 更新 localStorage
       const userFavoriteList =
@@ -145,11 +145,11 @@ export const PostFavorite = async (episodeId) => {
   const bodyParam = { episodeId: episodeId };
   try {
     const response = await apiClient.post(url, bodyParam);
-    console.log(
-      "PostFavorite:",
-      response,
-      "status 200 還出現error? 是為了測試?"
-    );
+    // console.log(
+    //   "PostFavorite:",
+    //   response,
+    //   "status 200 還出現error? 是為了測試?"
+    // );
     if (response.status === 200) {
       // 更新 localStorage
       const userFavoriteList =
@@ -188,7 +188,7 @@ export const AddCategory = async ({ newTitle }) => {
     const response = await apiClient.post(url, bodyParameters);
     if (response.status === 200) {
       // 更新 localStorage
-      console.log("新增分類回傳結果:", response.data);
+      // console.log("新增分類回傳結果:", response.data);
       const userCategoryContent =
         JSON.parse(localStorage.getItem("userCategoryContent")) || [];
       userCategoryContent.push(response.data.category);
@@ -221,7 +221,7 @@ export const deleteCategory = async (categoriesId) => {
 
   try {
     const response = await apiClient.delete(url);
-    console.log("Response status:", response.status);
+    // console.log("Response status:", response.status);
     if (response.status === 200) {
       // 更新 localStorage
       const userCategoryContent =
@@ -250,7 +250,7 @@ export const deleteCategory = async (categoriesId) => {
 };
 //修改分類
 export const putCategory = async ({ categoriesId, name }) => {
-  console.log(categoriesId, name);
+  // console.log(categoriesId, name);
   const url = `api/categories/${categoriesId}`;
   const bodyParameters = {
     name: name,
@@ -258,7 +258,7 @@ export const putCategory = async ({ categoriesId, name }) => {
 
   try {
     const response = await apiClient.put(url, bodyParameters);
-    console.log("Response status:", response.status);
+    // console.log("Response status:", response.status);
     if (response.status === 200) {
       // 更新 localStorage
       const userCategoryContent =
@@ -270,7 +270,7 @@ export const putCategory = async ({ categoriesId, name }) => {
         "userCategoryContent",
         JSON.stringify(updatedCategoryContent)
       );
-      console.log("請求API修改分類名稱:", updatedCategoryContent);
+      // console.log("請求API修改分類名稱:", updatedCategoryContent);
       return { success: true, data: response.data };
     } else {
       return {
@@ -289,7 +289,7 @@ export const putCategory = async ({ categoriesId, name }) => {
 
 //添加show至分類
 export const addShowToCategory = async (categoryId, showId) => {
-  console.log(categoryId, showId);
+  // console.log(categoryId, showId);
   if (!categoryId) {
     console.error("Category ID is undefined");
     return {
@@ -303,7 +303,7 @@ export const addShowToCategory = async (categoryId, showId) => {
   // console.log("添加show至分類的response:", response);
   try {
     const response = await apiClient.post(url, bodyParam);
-    console.log("添加show至分類的response:", response);
+    // console.log("添加show至分類的response:", response);
     if (response.data.success) {
       return { success: true, data: response.data };
     } else {
@@ -326,7 +326,7 @@ export const deleteFromCategory = async (categoryId, showId) => {
   const url = `api/categories/${categoryId}/shows/${showId}`;
   try {
     const response = await apiClient.delete(url);
-    console.log("移除show從分類的response:", response);
+    // console.log("移除show從分類的response:", response);
     if (response.data.success) {
       return { success: true, data: response.data };
     } else {

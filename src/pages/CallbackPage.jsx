@@ -3,7 +3,6 @@ import { getUserProfile } from "../api/spotify";
 import { CreateAccount, GetFavoriteIds, GetCategory } from "../api/acRequest";
 import { useNavigate } from "react-router-dom";
 import { getCategoryEmoji } from "../api/supabaseApi";
-// import "../styles/progressBar.scss";
 import "../styles/progressBar.css";
 
 const Callback = () => {
@@ -104,6 +103,8 @@ const Callback = () => {
 
     if (spotifyToken) {
       fetchData();
+    } else {
+      navigate("/login");
     }
   }, [navigate]);
 

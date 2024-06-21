@@ -1,8 +1,6 @@
-// import "../../styles/footer.scss";
-import "../../styles/footer.css";
+import "../../styles/main.scss";
 import React from "react";
 import { usePodcastList } from "../../contexts/PodcastListContext.jsx";
-// import { PostFavorite, RemoveFavorite } from "../../api/acRequest.jsx";
 const Player = () => {
   const {
     // favoriteList,

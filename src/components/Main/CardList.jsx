@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import "../../styles/content.scss";
-// import "../../styles/content.css";
 import "../../styles/main.scss";
 import Card from "./Card";
 import AddCardModal from "./Modal/AddCardModal";
@@ -19,7 +17,7 @@ const CardList = ({
     categoryContent,
     channelList,
     favoriteList,
-    // activeEpisode,
+    activeEpisode,
     handleClickListItem,
     handleClickPlayer,
     activeEpisodeId,
@@ -30,11 +28,11 @@ const CardList = ({
   const [favoriteEpisodes, setFavoriteEpisodes] = useState([]);
   const activeCategoryContent = categoryContent && categoryContent[activeList];
 
-  console.log("activeEpisodeId:", activeEpisodeId);
+  // console.log("activeEpisodeId:", activeEpisodeId);
 
   //取得 data 傳遞給 card 渲染
-  console.log("activeCategoryContent saveShows:", activeCategoryContent);
-  console.log("favoriteList:", favoriteList);
+  // console.log("activeCategoryContent saveShows:", activeCategoryContent);
+  // console.log("favoriteList:", favoriteList);
 
   useEffect(() => {
     const fetchShows = async () => {
@@ -92,10 +90,10 @@ const CardList = ({
     fetchFavoriteEpisodes();
   }, [favoriteList]);
 
-  useEffect(() => {
-    console.log("showResults:", showResults);
-    console.log("favoriteEpisodes:", favoriteEpisodes);
-  }, [showResults, favoriteEpisodes]);
+  // useEffect(() => {
+  //   console.log("showResults:", showResults);
+  //   console.log("favoriteEpisodes:", favoriteEpisodes);
+  // }, [showResults, favoriteEpisodes]);
 
   //分類清單
   const getCategoryContent = () => {
@@ -172,7 +170,6 @@ const CardList = ({
                 <ListItem
                   key={index}
                   item={episode}
-                  activeEpisode={activeEpisodeId === episode.id}
                   handleClickListItem={() => handleClickListItem(episode.id)}
                   handleClickPlayer={() => handleClickPlayer(episode)}
                 />

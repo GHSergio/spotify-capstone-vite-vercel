@@ -1,8 +1,5 @@
 import { useCallback } from "react";
-import {
-  loginWithSpotifyClick,
-  // logoutClick,
-} from "../../api/Author";
+import { loginWithSpotifyClick } from "../../api/Author";
 
 const SpotifyAuthButton = () => {
   const handleAuthClick = useCallback(async () => {

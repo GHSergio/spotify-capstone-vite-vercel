@@ -6,10 +6,10 @@ const redirectUrl = import.meta.env.VITE_SPOTIFY_REDIRECT_URI;
 const authorizationEndpoint = import.meta.env
   .VITE_SPOTIFY_AUTHORIZATION_ENDPOINT;
 const tokenEndpoint = import.meta.env.VITE_SPOTIFY_TOKEN_ENDPOINT;
-console.log("clientId:", clientId);
-console.log("authorizationEndpoint:", authorizationEndpoint);
-console.log("redirectUrl:", redirectUrl);
-console.log("tokenEndpoint:", tokenEndpoint);
+// console.log("clientId:", clientId);
+// console.log("authorizationEndpoint:", authorizationEndpoint);
+// console.log("redirectUrl:", redirectUrl);
+// console.log("tokenEndpoint:", tokenEndpoint);
 
 const scope =
   "streaming user-read-playback-position user-library-read user-modify-playback-state user-read-playback-state user-read-private user-read-email";
@@ -48,7 +48,7 @@ const code = args.get("code");
 // If we find a code, we're in a callback, do a token exchange
 if (code) {
   const token = await getToken(code);
-  console.log("Received token:", token);
+  // console.log("Received token:", token);
   currentToken.save(token);
 
   // Remove code from URL so we can refresh correctly.
@@ -168,7 +168,7 @@ async function refreshTokenClick() {
   const token = await refreshToken();
   currentToken.save(token);
   renderTemplate("oauth", "oauth-template", currentToken);
-  console.log(currentToken);
+  // console.log(currentToken);
 }
 
 // HTML Template Rendering with basic data binding - demoware only.

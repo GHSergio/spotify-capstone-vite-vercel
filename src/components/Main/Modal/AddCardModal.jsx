@@ -20,7 +20,7 @@ const AddCardModal = ({ isOpen, onConfirm, onClose }) => {
     // addChannelToCategoryContent,
     // handleCloseAddCardModal,
   } = usePodcastList();
-  console.log("selectedChannel:", selectedChannel);
+  // console.log("selectedChannel:", selectedChannel);
 
   const handleSearch = async (event) => {
     const value = event.target.value;
@@ -68,29 +68,6 @@ const AddCardModal = ({ isOpen, onConfirm, onClose }) => {
     setSearchInput("");
     setSelectedChannel([]);
   };
-
-  // const handleOnConfirm = async () => {
-  //   if (selectedChannel.length > 0) {
-  //     try {
-  //       // 並行發送所有添加請求
-  //       await Promise.all(
-  //         selectedChannel.map((show) => addShowToCategory(categoryId, show.id))
-  //       );
-
-  //       // 更新 categoryContent
-  //       addChannelToCategoryContent(categoryId, selectedChannel);
-
-  //       // 重置狀態
-  //       setSearchInput("");
-  //       setSelectedChannel([]);
-
-  //       // 關閉模態框
-  //       onClose();
-  //     } catch (error) {
-  //       console.error("Error adding shows to category:", error);
-  //     }
-  //   }
-  // };
 
   const handleOnClose = () => {
     setSearchInput(""); // 重置搜索輸入

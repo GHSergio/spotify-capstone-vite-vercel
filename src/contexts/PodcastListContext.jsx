@@ -64,15 +64,15 @@ const PodcastListProvider = ({ children }) => {
 
   //將 episodeId set activeEpisode
   const handleClickListItem = (episodeId) => {
-    console.log("active episodeId:", episodeId);
+    // console.log("active episodeId:", episodeId);
     setActiveEpisodeId(activeEpisodeId === episodeId ? null : episodeId);
   };
 
   //在 channelList 中查找id匹配的 episode
   const handleClickPlayer = (item) => {
-    console.log(item);
+    // console.log(item);
     setCurrentPlayer(item);
-    console.log("currentPlayer:", currentPlayer);
+    // console.log("currentPlayer:", currentPlayer);
   };
 
   const handleSelectedChannelClick = (podcast) => {

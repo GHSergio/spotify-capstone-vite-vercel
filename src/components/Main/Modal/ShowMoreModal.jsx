@@ -1,5 +1,4 @@
-// import "../../../styles/showMoreModal.scss";
-import "../../../styles/showMoreModal.css";
+import "../../../styles/main.scss";
 import { usePodcastList } from "../../../contexts/PodcastListContext";
 import ListItem from "../ListItem";
 import { deleteFromCategory } from "../../../api/acRequest";
@@ -100,8 +99,8 @@ const ShowMoreModal = ({ isOpen, onClose, card }) => {
                   <ListItem
                     key={index}
                     item={item}
-                    handleClickListItem={() => handleClickListItem?.(item.id)}
-                    handleClickPlayer={() => handleClickPlayer?.(item)}
+                    handleClickListItem={() => handleClickListItem(item.id)}
+                    handleClickPlayer={() => handleClickPlayer(item)}
                   />
                 ))}
             </div>

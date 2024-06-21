@@ -3,7 +3,7 @@ import axios from "axios";
 
 // const baseUri = "https://api.spotify.com";
 const baseUri = import.meta.env.VITE_SPOTIFY_API_BASE_URI;
-console.log("spotify env:", baseUri);
+// console.log("spotify env:", baseUri);
 // 從 localStorage 中獲取 accessToken
 const spotifyToken = localStorage.getItem("access_token");
 
@@ -12,7 +12,7 @@ export const getUserProfile = async () => {
   //在全域spotifyToken 初始化讀取不到?
   //放在fn內 每次fn執行 都獲取最新
   const spotifyToken = localStorage.getItem("access_token");
-  console.log(spotifyToken);
+  // console.log(spotifyToken);
 
   const userProfileEndpoint = baseUri + "/v1/me";
   try {
@@ -43,7 +43,7 @@ export const getUserProfile = async () => {
 
 //取得shows & Episodes
 export const getShowWithEpisodes = async (id) => {
-  console.log(id);
+  // console.log(id);
   const spotifyToken = localStorage.getItem("access_token");
   const uri = `${baseUri}/v1/shows/${id}`;
   try {
@@ -53,7 +53,7 @@ export const getShowWithEpisodes = async (id) => {
       },
     });
     const showData = showResponse.data;
-    console.log(showData);
+    // console.log(showData);
 
     return showData;
   } catch (error) {
@@ -76,7 +76,7 @@ export const getShowEpisodes = async (id) => {
       },
     });
 
-    console.log("getShowEpisodes:", response.data);
+    // console.log("getShowEpisodes:", response.data);
     return response.data;
   } catch (error) {
     console.error("Error:", error);
@@ -93,7 +93,7 @@ export const getPlayerSrc = async (id) => {
         Authorization: `Bearer ${spotifyToken}`,
       },
     });
-    console.log(response);
+    // console.log(response);
   } catch (error) {
     console.error("Error:", error);
     throw error;
@@ -119,7 +119,7 @@ export const searchShows = async (input) => {
   const response = await axios
     .get(url, config)
     .then((data) => {
-      console.log(data.data.shows.items);
+      // console.log(data.data.shows.items);
       return data.data.shows.items;
     })
     .catch(async (err) => {
@@ -147,7 +147,7 @@ export const getArtistProfile = async () => {
     });
 
     const artistProfileData = response.data;
-    console.log("Artist Profile Data:", artistProfileData);
+    // console.log("Artist Profile Data:", artistProfileData);
     return artistProfileData;
   } catch (error) {
     console.error("Error:", error);
@@ -165,7 +165,7 @@ export const getUserShowList = async () => {
       },
     });
     const userShowList = response.data;
-    console.log(userShowList);
+    // console.log(userShowList);
     return userShowList;
   } catch (error) {
     console.error("Error:", error);

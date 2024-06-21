@@ -38,66 +38,15 @@ const ListActionModal = ({
     // deleteListItem,
     // addNavigationItem,
   } = usePodcastList();
-  console.log("categoryContent:", categoryContent);
-  // console.log(" categoryEmoji:", categoryEmoji);
+
   const currentCategory = categoryContent[[index]] && categoryContent[[index]];
   const defaultTitle = currentCategory?.name;
   const defaultEmoji = currentCategory?.emoji;
-  console.log("currentCategory:", currentCategory);
-  console.log("defaultTitle:", defaultTitle);
+  // console.log("categoryContent:", categoryContent);
+  // console.log(" categoryEmoji:", categoryEmoji);
+  // console.log("currentCategory:", currentCategory);
+  // console.log("defaultTitle:", defaultTitle);
 
-  //處理修改 發送ac修改category & 發送db修改emoji & 更新本地分類name & emoji
-  // const handleEditNavigationItem = async (index, newTitle, newEmoji) => {
-  //   const category = categoryContent[index];
-  //   try {
-  //     //發送請求更改category的name
-  //     console.log("Updating category:", category.id, newTitle);
-  //     const updateResult = await putCategory({
-  //       categoriesId: category.id,
-  //       name: newTitle,
-  //     });
-  //     console.log("Update result:", updateResult);
-
-  //     if (updateResult?.success) {
-  //       if (newEmoji && newEmoji !== category.emoji) {
-  //         try {
-  //           //修改db.json的emoji
-  //           // console.log("Updating emoji for:", category.id, newEmoji);
-  //           const emojiUpdateResponse = await editCategoryEmoji(
-  //             category.id,
-  //             newEmoji
-  //           );
-  //           console.log("Emoji 更新成功:", emojiUpdateResponse);
-  //         } catch (error) {
-  //           console.error("更新 emoji 失敗:", error);
-  //         }
-  //       }
-  //       // 更新分類清單內的 title & emoji
-  //       const updatedCategoryContent =
-  //         categoryContent &&
-  //         categoryContent.map((item, idx) => {
-  //           if (idx === index) {
-  //             return { ...item, name: newTitle, emoji: newEmoji || item.emoji };
-  //           }
-  //           return item;
-  //         });
-
-  //       console.log("Modal的 updatedCategoryContent:", updatedCategoryContent);
-
-  //       // 更新 localStorage 中的 userCategoryContent
-  //       localStorage.setItem(
-  //         "userCategoryContent",
-  //         JSON.stringify(updatedCategoryContent)
-  //       );
-
-  //       setCategoryContent(updatedCategoryContent);
-  //     } else {
-  //       console.error("分類名稱更新失敗:", updateResult.message);
-  //     }
-  //   } catch (error) {
-  //     console.error("更新分類名稱時發生錯誤:", error);
-  //   }
-  // };
   const handleEditNavigationItem = async (index, newTitle, newEmoji) => {
     const category = categoryContent[index];
     try {

@@ -81,7 +81,6 @@ button {
         display: flex;
         color: #718096;
         align-items: center;
-
         .list-item-title {
           margin: 0 10px;
         }
@@ -103,14 +102,12 @@ button {
           }
         }
       }
-
-      .addCategory {
-        border: 2px solid #30a9de;
-        border-radius: 12px;
-
-        .link-item {
-          color: #30a9de;
-        }
+    }
+    .addCategory {
+      border: 2px solid #30a9de;
+      border-radius: 12px;
+      .link-item {
+        color: #30a9de;
       }
     }
   }
@@ -971,6 +968,9 @@ button {
         }
       }
     }
+    .video-container.active {
+      border: 2px solid #ff7f50;
+    }
   }
 }
 
@@ -1104,6 +1104,9 @@ button {
         }
       }
     }
+  }
+  .video-container.active {
+    border: 2px solid #ff7f50;
   }
 }
 
@@ -1477,6 +1480,15 @@ hr {
   border-style: none;
 }
 
+.custom-tooltip {
+  background-color: #38c5cd !important;
+  color: #291d1d !important;
+  border-radius: 8px !important;
+  padding: 10px !important;
+  font-size: 1rem !important;
+  box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.5) !important;
+}
+
 /* 媒體查詢 */
 @media screen and (min-width: 1500px) {
   .content-container {
@@ -1485,7 +1497,7 @@ hr {
     /* 無內容時預設 */
     .default {
       top: 10%;
-      left: 40%;
+      left: 35%;
     }
     .overlay {
       position: fixed;

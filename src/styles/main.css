@@ -91,11 +91,11 @@ button {
 .navigation .list-container .list-item.active .hamburger-container .hamburger-wrapper .hamburger-dot {
   background: #fefefe;
 }
-.navigation .list-container .list-item .addCategory {
+.navigation .list-container .addCategory {
   border: 2px solid #30a9de;
   border-radius: 12px;
 }
-.navigation .list-container .list-item .addCategory .link-item {
+.navigation .list-container .addCategory .link-item {
   color: #30a9de;
 }
 
@@ -862,6 +862,9 @@ button {
   cursor: pointer;
   text-align: center;
 }
+.more-modal-container .more-modal-wrapper .video-container.active {
+  border: 2px solid #ff7f50;
+}
 
 .favorite-list-container {
   display: flex;
@@ -980,6 +983,9 @@ button {
   right: 16px;
   cursor: pointer;
   text-align: center;
+}
+.favorite-list-container .video-container.active {
+  border: 2px solid #ff7f50;
 }
 
 .modal-overlay {
@@ -1321,6 +1327,15 @@ hr {
   border-style: none;
 }
 
+.custom-tooltip {
+  background-color: #38c5cd !important;
+  color: #291d1d !important;
+  border-radius: 8px !important;
+  padding: 10px !important;
+  font-size: 1rem !important;
+  box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.5) !important;
+}
+
 /* 媒體查詢 */
 @media screen and (min-width: 1500px) {
   .content-container {
@@ -1330,7 +1345,7 @@ hr {
   }
   .content-container .default {
     top: 10%;
-    left: 40%;
+    left: 35%;
   }
   .content-container .overlay {
     position: fixed;
