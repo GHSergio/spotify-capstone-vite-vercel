@@ -23,14 +23,14 @@ const Callback = () => {
   //取得驗證碼後 獲取各項data 並且存入localStorage
   useEffect(() => {
     const spotifyToken = localStorage.getItem("access_token");
-    console.log("spotifyToken:", spotifyToken);
+    // console.log("spotifyToken:", spotifyToken);
 
     const fetchData = async () => {
       try {
         // setToken(spotifyToken);
         // 1. 取得 Spotify 使用者資訊
         const userProfileData = await getUserProfile(spotifyToken);
-        console.log("取得使用者資訊", userProfileData);
+        // console.log("取得使用者資訊", userProfileData);
         // setProgress(10);
         updateProgress(10);
 
@@ -42,7 +42,7 @@ const Callback = () => {
         updateProgress(20);
         // 3. 取得ac收藏清單 單集 ID
         const userFavoriteList = await GetFavoriteIds();
-        console.log("取得使用者收藏清單:", userFavoriteList);
+        // console.log("取得使用者收藏清單:", userFavoriteList);
 
         // setProgress(40);
         updateProgress(20);
@@ -52,7 +52,7 @@ const Callback = () => {
 
         // 4. 使用 supabase API 獲取 categoryEmoji
         const categoryEmojiData = await getCategoryEmoji();
-        console.log("取得清單映射表情categoryEmojiData:", categoryEmojiData);
+        // console.log("取得清單映射表情categoryEmojiData:", categoryEmojiData);
         // 存儲到localStorage
         // localStorage.setItem("userEmojis", JSON.stringify(categoryEmojiData));
         updateProgress(20);
@@ -60,7 +60,7 @@ const Callback = () => {
         // 5. 獲取ac清單內容
         const userCategoryContent = await GetCategory();
 
-        console.log("映射表情之前userCategoryContent:", userCategoryContent);
+        // console.log("映射表情之前userCategoryContent:", userCategoryContent);
 
         //添加屬性映射 emoji 到分類清單 & 存入localStorage
         const addedEmojiCategoryContent = userCategoryContent.map(
@@ -80,10 +80,10 @@ const Callback = () => {
           "userCategoryContent",
           JSON.stringify(addedEmojiCategoryContent)
         );
-        console.log(
-          "映射表情後的userCategoryContent:",
-          addedEmojiCategoryContent
-        );
+        // console.log(
+        //   "映射表情後的userCategoryContent:",
+        //   addedEmojiCategoryContent
+        // );
 
         // setProgress(100); // 更新進度
         updateProgress(20);
