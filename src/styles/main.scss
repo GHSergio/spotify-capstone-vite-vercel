@@ -195,6 +195,7 @@ button {
   display: grid;
   grid-template-columns: repeat(4, minmax(178px, 1fr));
   grid-gap: 16px;
+  justify-content: center;
   flex-wrap: wrap;
 
   .card-container {
@@ -1610,9 +1611,11 @@ hr {
   /* MoreModal */
   .card-list-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(178px, 1fr));
+    grid-template-columns: repeat(auto-fit, 178px);
+    grid-gap: 24px;
     flex-wrap: wrap;
-    margin: 96px 2px 0px 2px;
+    justify-content: flex-start;
+    // margin: 96px 2px 0px 2px;
   }
 
   .card-container {
@@ -1621,6 +1624,7 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     background: #ffffff;
     box-shadow: 24px 8px 24px 8px rgba(199, 199, 199, 0.24);
