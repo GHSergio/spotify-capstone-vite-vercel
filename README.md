@@ -29,13 +29,43 @@ Users should be able to:
 
 ![Screenshot](./src/assets//AlphaCast登入頁面.png)
 
+### Links
+
+- Live Site URL: [https://vite-vercel-phi-seven.vercel.app/](https://vite-vercel-phi-seven.vercel.app/)
+
 ### Usage example
 
 ![Usage example](./src/assets/capstone使用範例.gif)
 
-### Links
+## 使用說明
 
-- Live Site URL: [https://vite-vercel-phi-seven.vercel.app/](https://vite-vercel-phi-seven.vercel.app/)
+1. 取得 Spotify 帳號
+2. 登入帳號並授權同意
+3. 等待初始化並進入主頁面
+4. 在主頁面可以執行以下操作：
+   - 新增分類
+   - 編輯分類名稱
+   - 刪除分類
+
+### 新增 Podcast
+
+1. 點選分類中的「新增 Podcast」按鈕
+2. 在搜尋欄輸入篩選條件
+3. 選取喜歡的 Podcast
+4. 按下「確定新增」
+
+### Podcast 操作
+
+- 點選 Podcast 的「更多」進入 episode 列表
+- 點選右上角的書籤可加入收藏清單
+- 點選播放圖示將其置換到正在播放
+- 點選刪除從分類中刪除該 Podcast
+
+### 收藏清單
+
+- 已收藏的 episode 列表
+- 點選書籤可將 episode 從收藏清單中移除
+- 點選播放可將其置換到正在播放
 
 ## My process
 
