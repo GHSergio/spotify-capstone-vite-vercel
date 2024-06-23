@@ -49,38 +49,64 @@
   border-bottom: 1px solid #ebebeb;
   padding: 16px;
 }
-.more-modal-container .more-modal-wrapper .more-modal-header .more-modal-header-img {
+.more-modal-container
+  .more-modal-wrapper
+  .more-modal-header
+  .more-modal-header-img {
   width: 127.66px;
   height: 127.66px;
 }
-.more-modal-container .more-modal-wrapper .more-modal-header .more-modal-header-img img {
+.more-modal-container
+  .more-modal-wrapper
+  .more-modal-header
+  .more-modal-header-img
+  img {
   width: 100%;
   height: 100%;
   border-radius: 13.35px;
 }
-.more-modal-container .more-modal-wrapper .more-modal-header .more-modal-header-content {
+.more-modal-container
+  .more-modal-wrapper
+  .more-modal-header
+  .more-modal-header-content {
   width: 687px;
   display: flex;
   flex-direction: column;
 }
-.more-modal-container .more-modal-wrapper .more-modal-header .more-modal-header-content span {
+.more-modal-container
+  .more-modal-wrapper
+  .more-modal-header
+  .more-modal-header-content
+  span {
   margin-bottom: 4px;
 }
-.more-modal-container .more-modal-wrapper .more-modal-header .more-modal-header-content .content-title {
+.more-modal-container
+  .more-modal-wrapper
+  .more-modal-header
+  .more-modal-header-content
+  .content-title {
   height: 26px;
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
   color: #111111;
 }
-.more-modal-container .more-modal-wrapper .more-modal-header .more-modal-header-content .content-type {
+.more-modal-container
+  .more-modal-wrapper
+  .more-modal-header
+  .more-modal-header-content
+  .content-type {
   height: 17px;
   font-weight: 400;
   font-size: 12px;
   line-height: 17px;
   color: #93989a;
 }
-.more-modal-container .more-modal-wrapper .more-modal-header .more-modal-header-content .content-text {
+.more-modal-container
+  .more-modal-wrapper
+  .more-modal-header
+  .more-modal-header-content
+  .content-text {
   height: 51px;
   font-weight: 400;
   font-size: 12px;
@@ -203,4 +229,5 @@
   right: 16px;
   cursor: pointer;
   text-align: center;
-}/*# sourceMappingURL=showMoreModal.css.map */
+}
+/* # sourceMappingURL=showMoreModal.css.map */

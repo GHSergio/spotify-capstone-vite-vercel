@@ -68,7 +68,7 @@ const Callback = () => {
             const emojiEntry = categoryEmojiData.data.find(
               (emoji) => parseInt(emoji.id) === parseInt(category.id)
             );
-            console.log("emojiEntry:", emojiEntry);
+            // console.log("emojiEntry:", emojiEntry);
             return {
               ...category,
               emoji: emojiEntry ? emojiEntry.emoji : "❓",

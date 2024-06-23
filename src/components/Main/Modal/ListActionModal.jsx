@@ -1,18 +1,19 @@
 import { usePodcastList } from "../../../contexts/PodcastListContext";
 import { useState, useEffect } from "react";
 import EmojiPicker from "emoji-picker-react";
+import ReactTooltip from "react-tooltip";
 import {
   GetCategory,
   AddCategory,
   deleteCategory,
   putCategory,
-  // addShowToCategory,
 } from "../../../api/acRequest";
 import {
   editCategoryEmoji,
   addCategoryEmoji,
   deleteCategoryEmoji,
 } from "../../../api/supabaseApi";
+import "../../../styles/main.scss";
 
 const ListActionModal = ({
   isOpen,
@@ -46,6 +47,13 @@ const ListActionModal = ({
   // console.log(" categoryEmoji:", categoryEmoji);
   // console.log("currentCategory:", currentCategory);
   // console.log("defaultTitle:", defaultTitle);
+
+  // 重新初始化 ReactTooltip
+  useEffect(() => {
+    if (isOpen) {
+      ReactTooltip.rebuild();
+    }
+  }, [isOpen]);
 
   const handleEditNavigationItem = async (index, newTitle, newEmoji) => {
     const category = categoryContent[index];
@@ -144,10 +152,8 @@ const ListActionModal = ({
     }
   };
 
-  console.log("categoryEmoji:", categoryEmoji);
-
   //添加新分類emoji
-  const createCategoryEmoji = async (categoryId, emoji = "") => {
+  const createCategoryEmoji = async (categoryId, emoji = "🎵") => {
     try {
       const result = await addCategoryEmoji(categoryId, emoji);
       console.log("新增表情response:", result);
@@ -165,12 +171,12 @@ const ListActionModal = ({
     ]);
   };
 
-  //處理新增分類
+  //處理新增分類 預設emoji = "🎵"
   const handleAddCategory = async (title) => {
     const newCategory = await addCategory(title);
     if (newCategory) {
       await createCategoryEmoji(newCategory.id);
-      updateLocalStateWithNewCategory(newCategory, "");
+      updateLocalStateWithNewCategory(newCategory, "🎵");
     }
   };
 
@@ -215,13 +221,13 @@ const ListActionModal = ({
     setPickerOpen(false);
   };
 
-  console.log("ListModal 接收到的 editInput:", editInput);
+  // console.log("ListModal 接收到的 editInput:", editInput);
   // console.log("ListModal 接收到的 defaultValue:", defaultValue);
   // console.log("chosenEmoji:", chosenEmoji);
 
   // 在模態框打開時重置 editInput
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && header !== "新增分類") {
       setEditInput(defaultTitle || "");
       setChosenEmoji(defaultEmoji || "");
     }
@@ -237,6 +243,7 @@ const ListActionModal = ({
 
   return (
     <>
+      <ReactTooltip place="top" type="dark" effect="float" />
       {isOpen && (
         <div className="modal-overlay" onClick={onClose}>
           <div
@@ -275,14 +282,18 @@ const ListActionModal = ({
                   <div className="list-modal-search-container">
                     {/* 拆分成emoji & title */}
                     {header === "編輯分類名稱" && (
-                      <div
-                        className="emoji-container"
-                        onClick={handlePickerOpen}
-                      >
-                        <span className="emoji">
-                          {chosenEmoji || (defaultEmoji && defaultEmoji)}
-                        </span>
-                      </div>
+                      <>
+                        <div
+                          className="emoji-container"
+                          onClick={handlePickerOpen}
+                          data-tip="點選可變更圖示"
+                        >
+                          <span className="emoji">
+                            {chosenEmoji || (defaultEmoji && defaultEmoji)}
+                          </span>
+                        </div>
+                        <span className="separator">|</span>
+                      </>
                     )}
                     {header === "編輯分類名稱" ? (
                       <input
@@ -295,6 +306,7 @@ const ListActionModal = ({
                         }
                         placeholder={placeholder && placeholder}
                         onChange={handleEditInput}
+                        data-tip="點選左側圖示可進行變更"
                       />
                     ) : (
                       <input
@@ -303,6 +315,7 @@ const ListActionModal = ({
                         placeholder={placeholder && placeholder}
                         value={editInput.length === 0 ? "" : editInput}
                         onChange={handleEditInput}
+                        data-tip="圖示為預設,可於編輯名稱選項變更圖示"
                       />
                     )}
                   </div>
@@ -348,7 +361,7 @@ const ListActionModal = ({
         <div
           className="emoji-picker-container"
           style={{
-            zIndex: "50",
+            zIndex: "100",
             position: "absolute",
             bottom: "-200px",
             left: "-100px",

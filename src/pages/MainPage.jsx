@@ -183,7 +183,6 @@ const Main = () => {
           showModal={addCardModal}
           handleOpenModal={handleOpenAddCardModal}
           handleCloseModal={handleCloseAddCardModal}
-          // handleConfirmModal={handleConfirmAddCardModal}
         />
       </div>
       <div className="footer">

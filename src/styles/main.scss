@@ -637,6 +637,9 @@ button {
           width: 20px;
           height: 20px;
           padding-left: 10px;
+          .emoji {
+            line-height: 15px;
+          }
         }
 
         .search-input {
@@ -652,6 +655,10 @@ button {
           font-size: 16px;
           line-height: 20px;
           margin-left: 16px;
+        }
+        .separator {
+          margin: 0 10px;
+          color: #1d0f0f; /* 分隔符顏色 */
         }
       }
     }

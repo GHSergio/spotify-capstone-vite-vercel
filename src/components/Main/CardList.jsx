@@ -90,11 +90,6 @@ const CardList = ({
     fetchFavoriteEpisodes();
   }, [favoriteList]);
 
-  // useEffect(() => {
-  //   console.log("showResults:", showResults);
-  //   console.log("favoriteEpisodes:", favoriteEpisodes);
-  // }, [showResults, favoriteEpisodes]);
-
   //分類清單
   const getCategoryContent = () => {
     //當List沒有內容
@@ -112,11 +107,7 @@ const CardList = ({
               <p>新增 Podcast</p>
             </button>
 
-            <AddCardModal
-              isOpen={showModal}
-              // onConfirm={addChannelToCategoryContent}
-              onClose={handleCloseModal}
-            />
+            <AddCardModal isOpen={showModal} onClose={handleCloseModal} />
           </div>
         </>
       );
@@ -139,11 +130,7 @@ const CardList = ({
                 />
               ))}
 
-            <AddCardModal
-              isOpen={showModal}
-              // onConfirm={addChannelToCategoryContent}
-              onClose={handleCloseModal}
-            />
+            <AddCardModal isOpen={showModal} onClose={handleCloseModal} />
           </div>
         </>
       );

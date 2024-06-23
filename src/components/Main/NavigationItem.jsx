@@ -17,7 +17,7 @@ const NavigationItem = ({
       onClick={() => handleNavigationItem(index)}
     >
       <div className="list-item-content">
-        <span className="emoji">{emoji ? emoji : "❓"}</span>
+        <span className="emoji">{emoji ? emoji : "🎵"}</span>
         <p className="list-item-title">{title && title}</p>
       </div>
       {title !== "收藏清單" && (

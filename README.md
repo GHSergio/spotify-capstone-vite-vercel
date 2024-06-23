@@ -29,6 +29,10 @@ Users should be able to:
 
 ![Screenshot](./src/assets//AlphaCast登入頁面.png)
 
+### Usage example
+
+![Usage example](./src/assets/capstone使用範例.gif)
+
 ### Links
 
 - Live Site URL: [前往專案網頁](vite-vercel-phi-seven.vercel.app)
