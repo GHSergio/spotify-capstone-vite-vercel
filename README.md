@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [前往專案網頁](vite-vercel-phi-seven.vercel.app)
+- Live Site URL: [https://vite-vercel-phi-seven.vercel.app/](https://vite-vercel-phi-seven.vercel.app/)
 
 ## My process
 
