@@ -249,6 +249,9 @@ button {
     font-size: 12px;
     color: #93989a;
     margin: 4px 0;
+    white-space: nowrap; /* 防止文本換行 */
+    overflow: hidden; /* 隱藏超出容器的文本 */
+    text-overflow: ellipsis; /* 顯示省略號 */
   }
 }
 
@@ -1521,91 +1524,89 @@ hr {
     flex-grow: 1;
   }
 
+  //收藏清單
   .favorite-list-container {
     width: 100% !important;
-  }
-
-  .video-container {
-    display: flex;
-    flex-grow: 1;
-    max-width: 900px !important;
-    min-height: 200px;
-  }
-
-  .video-wrapper {
-    display: flex;
-    max-width: 800px !important;
-    min-height: 180px;
-    justify-content: space-between;
-  }
-
-  .video-image {
-    min-width: 170px;
-    min-height: 170px;
-  }
-
-  .video-content {
-    padding: 2px;
-    max-width: 750px !important;
-  }
-
-  .title {
-    max-width: 560px !important;
-    font-size: 1rem !important;
-  }
-
-  .description {
-    margin: 5px 0;
-    max-width: 550px !important;
-    min-height: 100px;
-    font-size: 0.8rem !important;
-    /* 控制顯示的行數 */
-    display: -webkit-box;
-    -webkit-line-clamp: 6 !important;
-    -webkit-box-orient: vertical;
-    // overflow: hidden;
-    // text-overflow: ellipsis;
-    overflow-y: scroll !important;
-    &::-webkit-scrollbar {
-      width: 6px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .video-container {
+      display: flex;
+      // flex-grow: 1;
+      max-width: 750px !important;
+      min-height: 200px;
+    }
+    .video-wrapper {
+      display: flex;
+      max-width: 760px !important;
+      min-height: 180px;
+      justify-content: space-between;
     }
 
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
+    .video-image {
+      width: 150px !important;
+      height: 150px !important;
     }
 
-    &::-webkit-scrollbar-thumb {
-      background: #c4b3b3;
-      border-radius: 3px;
+    .video-content {
+      padding: 2px;
+      max-width: 750px !important;
+      .title {
+        max-width: 560px !important;
+        font-size: 1rem !important;
+      }
+
+      .description {
+        margin: 5px 0;
+        max-width: 550px !important;
+        min-height: 100px;
+        font-size: 0.8rem !important;
+        overflow-y: scroll !important;
+        -webkit-line-clamp: unset !important; /* 移除行限制 */
+        -webkit-box-orient: unset !important; /* 移除盒子方向 */
+        text-overflow: unset !important; /* 移除省略號 */
+        display: block !important; /* 變回塊級元素以便滾動 */
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: #c4b3b3;
+          border-radius: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background: #8e8181;
+          cursor: pointer;
+        }
+      }
+
+      .switch-wrapper {
+        margin-left: 1rem;
+        min-width: 209px;
+        min-height: 40px;
+      }
+
+      .player {
+        min-width: 50px;
+        min-height: 50px;
+      }
+
+      .player svg {
+        margin-left: 0.5rem;
+        min-width: 40px;
+        min-height: 40px;
+      }
+
+      .date {
+        margin-left: 1rem;
+        min-width: 100%;
+        min-height: 30px;
+      }
     }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background: #8e8181;
-      cursor: pointer;
-    }
-  }
-
-  .switch-wrapper {
-    margin-left: 1rem;
-    min-width: 209px;
-    min-height: 40px;
-  }
-
-  .player {
-    min-width: 50px;
-    min-height: 50px;
-  }
-
-  .player svg {
-    margin-left: 0.5rem;
-    min-width: 40px;
-    min-height: 40px;
-  }
-
-  .date {
-    margin-left: 1rem;
-    min-width: 100%;
-    min-height: 30px;
   }
 
   /* MoreModal */
@@ -1631,7 +1632,7 @@ hr {
     border-radius: 8px;
   }
 
-  /* Card Detail */
+  // showMoreModal
   .more-modal-container {
     min-width: 900px;
   }
@@ -1644,11 +1645,42 @@ hr {
     .video-wrapper {
       justify-content: flex-start !important;
       width: 800px !important;
+      .video-image {
+        width: 120px !important;
+        height: 120px !important;
+        img {
+          width: 100% !important;
+          height: 100% !important;
+        }
+      }
       .video-content {
-        min-width: 750px !important;
+        min-width: 650px !important;
 
         .description {
           min-width: 650px !important;
+          overflow-y: scroll !important;
+          -webkit-line-clamp: unset !important; /* 移除行限制 */
+          -webkit-box-orient: unset !important; /* 移除盒子方向 */
+          text-overflow: unset !important; /* 移除省略號 */
+          display: block !important; /* 變回塊級元素以便滾動 */
+
+          &::-webkit-scrollbar {
+            width: 6px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #c4b3b3;
+            border-radius: 3px;
+          }
+
+          &::-webkit-scrollbar-thumb:hover {
+            background: #8e8181;
+            cursor: pointer;
+          }
         }
       }
     }
@@ -1657,53 +1689,48 @@ hr {
   .more-modal-header {
     max-width: 900px !important;
     min-height: 200px;
+    .button-close {
+      max-width: 800px;
+    }
+
+    .button-delete {
+      min-width: 40px;
+      min-height: 40px;
+      top: 180px !important;
+      p {
+        font-size: 4rem;
+      }
+    }
   }
 
   .more-modal-header-img {
     min-width: 200px;
     min-height: 200px;
-  }
-
-  .more-modal-header-img img {
-    width: 100%;
-    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .more-modal-header-content {
     max-width: 900px;
     padding: 10px;
-  }
-
-  .content-title {
-    max-width: 800px;
-    font-size: 1.5rem !important;
-  }
-
-  .content-type {
-    margin: 8px 0px;
-    max-width: 800px;
-    font-size: 1rem !important;
-  }
-
-  .content-text {
-    max-width: 800px;
-    height: 90px !important;
-    font-size: 0.8rem !important;
-    line-height: 1.15rem !important;
-    letter-spacing: 0.09rem !important;
-  }
-  .button-close {
-    max-width: 800px;
-  }
-
-  .button-delete {
-    min-width: 40px;
-    min-height: 40px;
-    top: 180px !important;
-  }
-
-  .button-delete p {
-    font-size: 4rem;
+    .content-title {
+      max-width: 800px;
+      font-size: 1.5rem !important;
+    }
+    .content-type {
+      margin: 8px 0px;
+      max-width: 800px;
+      font-size: 1rem !important;
+    }
+    .content-text {
+      max-width: 800px;
+      height: 90px !important;
+      font-size: 0.8rem !important;
+      line-height: 1.15rem !important;
+      letter-spacing: 0.09rem !important;
+    }
   }
 
   .footer {

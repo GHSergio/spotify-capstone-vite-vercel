@@ -1,5 +1,6 @@
 import { usePodcastList } from "../../contexts/PodcastListContext";
 import ShowMoreModal from "./Modal/ShowMoreModal";
+import ReactTooltip from "react-tooltip";
 const Card = ({
   id,
   title,
@@ -28,6 +29,7 @@ const Card = ({
 
   return (
     <>
+      <ReactTooltip />
       <div
         className={`card-container ${active ? "active" : ""}`}
         onClick={onClick}
@@ -37,8 +39,12 @@ const Card = ({
             <img className="card-cover-img" src={imageUrl} alt="" />
           </div>
           <div className="card-content">
-            <h2 className="card-content-title">{title}</h2>
-            <p className="card-content-type">{publisher}</p>
+            <h2 className="card-content-title" data-tip={title}>
+              {title}
+            </h2>
+            <p className="card-content-type" data-tip={publisher}>
+              {publisher}
+            </p>
           </div>
           <button className="button-more" onClick={handleClickMore}>
             更多
