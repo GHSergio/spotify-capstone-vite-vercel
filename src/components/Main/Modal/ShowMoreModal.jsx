@@ -92,17 +92,19 @@ const ShowMoreModal = ({ isOpen, onClose, card }) => {
                   <p>刪除</p>
                 </button>
               </div>
+              <div className="more-modal-content">
+                {/* videoList */}
 
-              {/* videoList */}
-              {card.episodes &&
-                card.episodes.items.map((item, index) => (
-                  <ListItem
-                    key={index}
-                    item={item}
-                    handleClickListItem={() => handleClickListItem(item.id)}
-                    handleClickPlayer={() => handleClickPlayer(item)}
-                  />
-                ))}
+                {card.episodes &&
+                  card.episodes.items.map((item, index) => (
+                    <ListItem
+                      key={index}
+                      item={item}
+                      handleClickListItem={() => handleClickListItem(item.id)}
+                      handleClickPlayer={() => handleClickPlayer(item)}
+                    />
+                  ))}
+              </div>
             </div>
           </div>
         </div>

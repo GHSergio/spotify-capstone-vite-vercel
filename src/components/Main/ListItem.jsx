@@ -40,7 +40,7 @@ const ListItem = ({ item, handleClickListItem, handleClickPlayer }) => {
             <span className="title" data-tip={name}>
               {name}
             </span>
-            <span className="description">{description}</span>
+            <span className="description scrollbar-custom">{description}</span>
             <div className="switch-wrapper">
               <div
                 className="player"
