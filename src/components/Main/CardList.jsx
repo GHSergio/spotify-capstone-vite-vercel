@@ -184,10 +184,10 @@ const CardList = ({
 
   return (
     <>
-      <div className="content-container">
-        <h1>{greeting}</h1>
-        {activeList === 99 ? getFavoriteContent() : getCategoryContent()}
-      </div>
+      {/* <div className="content-wrapper"> */}
+      <h1>{greeting}</h1>
+      {activeList === 99 ? getFavoriteContent() : getCategoryContent()}
+      {/* </div> */}
     </>
   );
 };
