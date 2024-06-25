@@ -33,9 +33,14 @@ Users should be able to:
 
 - Live Site URL: [https://vite-vercel-phi-seven.vercel.app/](https://vite-vercel-phi-seven.vercel.app/)
 
-- 體驗帳密:
-  帳號:spotifytest9527@gmail.com
-  密碼:#spotifyTest#9527
+- 體驗帳號:
+  ```
+  spotifytest9527@gmail.com
+  ```
+- 密碼:
+  ```
+  #spotifyTest#9527
+  ```
 
 ### Usage example
 
