@@ -34,19 +34,21 @@ const ListActionModal = ({
     handleEditInput,
     categoryContent,
     setCategoryContent,
-    categoryEmoji,
+    // categoryEmoji,
     // editListItem,
     // deleteListItem,
     // addNavigationItem,
   } = usePodcastList();
 
-  const currentCategory = categoryContent[[index]] && categoryContent[[index]];
-  const defaultTitle = currentCategory?.name;
-  const defaultEmoji = currentCategory?.emoji;
-  // console.log("categoryContent:", categoryContent);
+  // const currentCategory = categoryContent[[index]] && categoryContent[[index]];
+  const currentCategory = categoryContent?.[[index]] ?? {};
+  const defaultTitle = currentCategory?.name ?? "";
+  const defaultEmoji = currentCategory?.emoji ?? "";
+  console.log("categoryContent:", categoryContent);
+  console.log("currentCategory:", currentCategory);
+  console.log("defaultTitle:", defaultTitle);
+  // console.log("currentAction:", currentAction);
   // console.log(" categoryEmoji:", categoryEmoji);
-  // console.log("currentCategory:", currentCategory);
-  // console.log("defaultTitle:", defaultTitle);
 
   // 重新初始化 ReactTooltip
   useEffect(() => {
@@ -56,7 +58,7 @@ const ListActionModal = ({
   }, [isOpen]);
 
   const handleEditNavigationItem = async (index, newTitle, newEmoji) => {
-    const category = categoryContent[index];
+    const category = categoryContent?.[index];
     try {
       const updateResult = await putCategory({
         categoriesId: category.id,
@@ -185,14 +187,22 @@ const ListActionModal = ({
     switch (currentAction) {
       case "edit":
         // 執行編輯操作 變更title
-        handleEditNavigationItem(index, editInput, chosenEmoji);
-        setEditInput("");
-        setChosenEmoji("");
+        if (currentCategory) {
+          handleEditNavigationItem(index, editInput, chosenEmoji);
+          setEditInput("");
+          setChosenEmoji("");
+        } else {
+          console.error("Category not found, cannot edit.");
+        }
         onClose();
         break;
 
       case "delete":
-        handleDeleteCategory(currentCategory.id);
+        if (currentCategory) {
+          handleDeleteCategory(currentCategory.id);
+        } else {
+          console.error("Category not found, cannot delete.");
+        }
         onClose();
         break;
 
@@ -221,7 +231,7 @@ const ListActionModal = ({
     setPickerOpen(false);
   };
 
-  // console.log("ListModal 接收到的 editInput:", editInput);
+  console.log("ListModal 接收到的 editInput:", editInput);
   // console.log("ListModal 接收到的 defaultValue:", defaultValue);
   // console.log("chosenEmoji:", chosenEmoji);
 
@@ -231,15 +241,15 @@ const ListActionModal = ({
       setEditInput(defaultTitle || "");
       setChosenEmoji(defaultEmoji || "");
     }
-  }, [isOpen, defaultTitle, defaultEmoji, setEditInput]);
+  }, [isOpen, defaultEmoji, setEditInput]);
 
   useEffect(() => {
     if (header === "編輯分類名稱" && currentCategory) {
       setEditInput(currentCategory.name);
-    } else {
-      setEditInput("");
+    } else if (isOpen && header === "新增分類") {
+      setEditInput(""); // 初始化為空
     }
-  }, [header, currentCategory, setEditInput]);
+  }, [isOpen, header, defaultTitle, defaultEmoji, setEditInput]);
 
   return (
     <>
@@ -295,6 +305,7 @@ const ListActionModal = ({
                         <span className="separator">|</span>
                       </>
                     )}
+                    {/* 編輯分類名稱 */}
                     {header === "編輯分類名稱" ? (
                       <input
                         className="search-input"
@@ -309,11 +320,12 @@ const ListActionModal = ({
                         data-tip="點選左側圖示可進行變更"
                       />
                     ) : (
+                      // 新增分類
                       <input
                         className="search-input"
                         type="text"
                         placeholder={placeholder && placeholder}
-                        value={editInput.length === 0 ? "" : editInput}
+                        value={editInput}
                         onChange={handleEditInput}
                         data-tip="圖示為預設,可於編輯名稱選項變更圖示"
                       />

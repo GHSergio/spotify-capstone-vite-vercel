@@ -15,7 +15,8 @@ const ShowMoreModal = ({ isOpen, onClose, card }) => {
     setCategoryContent,
   } = usePodcastList();
 
-  const currentCategoryId = categoryContent[activeList].id;
+  const currentCategoryId = categoryContent[activeList]?.id;
+  // console.log("categoryContent:", categoryContent);
   // console.log("currentCategoryId:", currentCategoryId);
   //處理delete
   const handleDelete = async (categoryId, showId) => {
@@ -100,8 +101,8 @@ const ShowMoreModal = ({ isOpen, onClose, card }) => {
                     <ListItem
                       key={index}
                       item={item}
-                      handleClickListItem={() => handleClickListItem(item.id)}
-                      handleClickPlayer={() => handleClickPlayer(item)}
+                      handleClickListItem={() => handleClickListItem?.(item.id)}
+                      handleClickPlayer={() => handleClickPlayer?.(item)}
                     />
                   ))}
               </div>

@@ -34,7 +34,11 @@ const Main = () => {
 
   const [listOpen, setListOpen] = useState(false);
 
-  const categoryList = categoryContent && Object.values(categoryContent);
+  // const categoryList = categoryContent && Object.values(categoryContent);
+  const categoryList = categoryContent ? Object.values(categoryContent) : [];
+
+  // const categoryList = categoryContent ?? {};
+  console.log("categoryList:", categoryList);
 
   //初始獲取各項localStorage set 進 state
   //由於只有一開始會從伺服器獲取資訊,從callback切到main都要從localStorage拿
@@ -49,9 +53,9 @@ const Main = () => {
       localStorage.getItem("categoryEmojiData")
     );
 
-    // console.log("userFavoriteList:", userFavoriteList);
-    // console.log("userCategoryContent:", userCategoryContent);
-    // console.log("categoryEmojiData:", categoryEmojiData);
+    console.log("userFavoriteList:", userFavoriteList);
+    console.log("userCategoryContent:", userCategoryContent);
+    console.log("categoryEmojiData:", categoryEmojiData);
 
     // setUserData(userProfileData); //使用者資訊
     setFavoriteList(userFavoriteList); //使用者收藏
@@ -64,11 +68,6 @@ const Main = () => {
     setCategoryEmoji,
     setCategoryContent,
   ]);
-
-  // console.log("Main 接收到的 收藏清單:", favoriteList);
-  // console.log("Main 接收到的 頻道清單:", channelList);
-  // console.log("Main 接收到的 categoryContent:", categoryContent);
-  // console.log("Main 接收到的 分類清單映射表情:", categoryEmoji);
 
   const handleListToggle = () => {
     setListOpen((prevState) => !prevState);
@@ -172,7 +171,7 @@ const Main = () => {
                       title={category?.name}
                       handleNavigationItem={handleNavigationItem}
                       activeDropdown={activeDropdown === index}
-                      handleDropdownClick={() => handleClickDropdown(index)}
+                      handleDropdownClick={() => handleClickDropdown?.(index)}
                     />
                   </>
                 );

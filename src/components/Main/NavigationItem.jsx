@@ -14,7 +14,7 @@ const NavigationItem = ({
     <li
       className={activeList === index ? "list-item active" : "list-item"}
       key={index}
-      onClick={() => handleNavigationItem(index)}
+      onClick={() => handleNavigationItem?.(index)}
     >
       <div className="list-item-content">
         <span className="emoji">{emoji ? emoji : "🎵"}</span>

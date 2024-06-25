@@ -5,13 +5,10 @@ const Hamburger = ({ isActive, onClick, disabled }) => {
   const {
     listActionModal,
     handleCloseListActionModal,
-
     categoryContent,
     activeList,
-
     currentAction,
     handleActionClick,
-
     handleOpenAddCardModal,
   } = usePodcastList();
 
@@ -40,12 +37,12 @@ const Hamburger = ({ isActive, onClick, disabled }) => {
             isOpen={listActionModal}
             header="新增分類"
             defaultValue={{
-              emoji: " 📚",
+              emoji: " 🎵",
             }}
             placeholder="請輸入分類名稱"
             confirmText="儲存"
             onClose={handleCloseListActionModal}
-            index={activeList}
+            // index={activeList}
             currentAction={currentAction}
           />
         );
@@ -80,7 +77,7 @@ const Hamburger = ({ isActive, onClick, disabled }) => {
         {
           <div className={classNames}>
             <div className="dropdown-item">
-              <p onClick={() => handleActionClick("edit")}>編輯名稱</p>
+              <p onClick={() => handleActionClick?.("edit")}>編輯名稱</p>
             </div>
 
             <hr />
@@ -91,7 +88,7 @@ const Hamburger = ({ isActive, onClick, disabled }) => {
             <hr />
 
             <div className="dropdown-item">
-              <p onClick={() => handleActionClick("delete")}>刪除分類</p>
+              <p onClick={() => handleActionClick?.("delete")}>刪除分類</p>
             </div>
           </div>
         }

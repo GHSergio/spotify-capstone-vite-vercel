@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
 import { getUserProfile } from "../api/spotify";
-import { CreateAccount, GetFavoriteIds, GetCategory } from "../api/acRequest";
+import {
+  CreateAccount,
+  GetFavoriteIds,
+  GetCategory,
+  AddCategory,
+} from "../api/acRequest";
 import { useNavigate } from "react-router-dom";
 import { getCategoryEmoji } from "../api/supabaseApi";
 import "../styles/progressBar.css";
+// import { handleAddCategory } from "../components/Main/Modal/ListActionModal";
 
 const Callback = () => {
   const [loading, setLoading] = useState(true);
@@ -59,11 +65,16 @@ const Callback = () => {
 
         // 5. 獲取ac清單內容
         const userCategoryContent = await GetCategory();
-
-        // console.log("映射表情之前userCategoryContent:", userCategoryContent);
+        // 檢查是否為空數組
+        if (userCategoryContent.length === 0) {
+          // 創建預設分類
+          const defultCategory = await AddCategory("預設清單");
+          userCategoryContent.push(defultCategory);
+        }
+        console.log("映射表情之前userCategoryContent:", userCategoryContent);
 
         //添加屬性映射 emoji 到分類清單 & 存入localStorage
-        const addedEmojiCategoryContent = userCategoryContent.map(
+        const addedEmojiCategoryContent = userCategoryContent?.map(
           (category) => {
             const emojiEntry = categoryEmojiData.data.find(
               (emoji) => parseInt(emoji.id) === parseInt(category.id)
@@ -71,7 +82,7 @@ const Callback = () => {
             // console.log("emojiEntry:", emojiEntry);
             return {
               ...category,
-              emoji: emojiEntry ? emojiEntry.emoji : "❓",
+              emoji: emojiEntry ? emojiEntry.emoji : "🎵",
             };
           }
         );
@@ -80,10 +91,10 @@ const Callback = () => {
           "userCategoryContent",
           JSON.stringify(addedEmojiCategoryContent)
         );
-        // console.log(
-        //   "映射表情後的userCategoryContent:",
-        //   addedEmojiCategoryContent
-        // );
+        console.log(
+          "映射表情後的userCategoryContent:",
+          addedEmojiCategoryContent
+        );
 
         // setProgress(100); // 更新進度
         updateProgress(20);
