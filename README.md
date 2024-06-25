@@ -33,6 +33,10 @@ Users should be able to:
 
 - Live Site URL: [https://vite-vercel-phi-seven.vercel.app/](https://vite-vercel-phi-seven.vercel.app/)
 
+- 體驗帳密:
+  帳號:spotifytest9527@gmail.com
+  密碼:#spotifyTest#9527
+
 ### Usage example
 
 ![Usage example](./src/assets/capstone使用範例.gif)
@@ -41,8 +45,8 @@ Users should be able to:
 
 ### 登入 & 前往主頁面
 
-1. 取得 Spotify 帳號
-2. 登入帳號並授權同意
+1. 進入專案頁面
+2. 點選登入 輸入體驗帳號 並 授權同意
 3. 等待初始化並進入主頁面
 4. 在主頁面可以執行以下操作：
    - 新增分類
