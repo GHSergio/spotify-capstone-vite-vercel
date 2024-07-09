@@ -9,7 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { getCategoryEmoji } from "../api/supabaseApi";
 import "../styles/progressBar.css";
-// import { handleAddCategory } from "../components/Main/Modal/ListActionModal";
+import { parse } from "path-browserify";
 
 const Callback = () => {
   const [loading, setLoading] = useState(true);
@@ -37,21 +37,16 @@ const Callback = () => {
         // 1. 取得 Spotify 使用者資訊
         const userProfileData = await getUserProfile(spotifyToken);
         // console.log("取得使用者資訊", userProfileData);
-        // setProgress(10);
-        updateProgress(10);
+        if (userProfileData) updateProgress(20);
 
         // 2. 取得 acApi 帳戶 & acToken
         await CreateAccount();
-        // setProgress(20);
-        updateProgress(10);
 
         updateProgress(20);
         // 3. 取得ac收藏清單 單集 ID
         const userFavoriteList = await GetFavoriteIds();
         // console.log("取得使用者收藏清單:", userFavoriteList);
-
-        // setProgress(40);
-        updateProgress(20);
+        if (userFavoriteList) updateProgress(20);
 
         // // 插入測試數據
         // await addTestData();
@@ -60,18 +55,25 @@ const Callback = () => {
         const categoryEmojiData = await getCategoryEmoji();
         // console.log("取得清單映射表情categoryEmojiData:", categoryEmojiData);
         // 存儲到localStorage
-        // localStorage.setItem("userEmojis", JSON.stringify(categoryEmojiData));
-        updateProgress(20);
+        localStorage.setItem("userEmojis", JSON.stringify(categoryEmojiData));
+        if (categoryEmojiData) updateProgress(20);
 
         // 5. 獲取ac清單內容
-        const userCategoryContent = await GetCategory();
-        // 檢查是否為空數組
+        let userCategoryContent = await GetCategory();
+        //GetCategory 獲取後 就存入localStorage 且 return data
+        console.log("從API獲取的分類清單:", userCategoryContent);
+
+        // 假如分類清單為空 --> 添加預設清單
         if (userCategoryContent.length === 0) {
-          // 創建預設分類
-          const defultCategory = await AddCategory("預設清單");
-          userCategoryContent.push(defultCategory);
+          // 創建預設分類 local提取&存入userCategoryContent
+          const result = await AddCategory({ newTitle: "預設清單" });
+          // console.log(result.data);
+          if (result.success) {
+            userCategoryContent = await GetCategory(); // 再次獲取分類清單
+            console.log("新增預設後的分類:", userCategoryContent);
+            // userCategoryContent.push(result.data);
+          }
         }
-        console.log("映射表情之前userCategoryContent:", userCategoryContent);
 
         //添加屬性映射 emoji 到分類清單 & 存入localStorage
         const addedEmojiCategoryContent = userCategoryContent?.map(
@@ -96,7 +98,6 @@ const Callback = () => {
           addedEmojiCategoryContent
         );
 
-        // setProgress(100); // 更新進度
         updateProgress(20);
 
         console.log("progress:100%, 獲取初始資料完畢");

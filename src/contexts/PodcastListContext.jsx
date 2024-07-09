@@ -47,7 +47,7 @@ const PodcastListProvider = ({ children }) => {
   const [categoryEmoji, setCategoryEmoji] = useState({});
   // console.log("currentAction:", currentAction);
   // console.log("listActionModal:", listActionModal);
-  console.log("categoryContent:", categoryContent);
+  // console.log("categoryContent:", categoryContent);
   //轉換時長單位
   const convertMsToHoursAndMinutes = (milliseconds) => {
     // 將毫秒數轉換為秒數

@@ -10,6 +10,32 @@ const apiClient = axios.create({
   // baseURL: process.env.REACT_APP_API_BASE_URL,
 });
 
+//access_token 當 headers 使用 axios
+// 創建acAPI帳戶
+export const CreateAccount = async () => {
+  const spotifyToken = localStorage.getItem("access_token");
+  const url = `${baseUri}/api/users`;
+  const bodyParameters = {
+    spotifyToken: spotifyToken,
+  };
+
+  try {
+    const response = await axios.post(url, bodyParameters);
+    console.log(response.status);
+    //使用status
+    if (response.status === 200) {
+      const token = response.data.token;
+      localStorage.setItem("acToken", token);
+    }
+  } catch (err) {
+    if (err.response && err.response.status === 502) {
+      console.error("向後端請求數據獲取失敗");
+    } else {
+      console.error("創建帳號時 發生錯誤:", err);
+    }
+  }
+};
+
 //使用於 用acToken 當 headers 的fn(也就是除了創建帳戶以外的fn)
 apiClient.interceptors.request.use(
   async (config) => {
@@ -24,7 +50,7 @@ apiClient.interceptors.request.use(
         "expires",
         new Date(new Date().getTime() + newTokens.expires_in * 1000)
       );
-      // 调用 CreateAccount & 使用現有的 acToken 當 headers
+      // 調用 CreateAccount & 使用現有的 acToken 當 headers
       await CreateAccount();
       const newAcToken = localStorage.getItem("acToken");
       config.headers.Authorization = `Bearer ${newAcToken}`;
@@ -40,39 +66,13 @@ apiClient.interceptors.request.use(
   }
 );
 
-//access_token 當 headers 使用 axios
-// 創建acAPI帳戶
-export const CreateAccount = async () => {
-  const spotifyToken = localStorage.getItem("access_token");
-  const url = `${baseUri}/api/users`;
-  const bodyParameters = {
-    spotifyToken: spotifyToken,
-  };
-
-  try {
-    const response = await axios.post(url, bodyParameters);
-    const token = response.data.token;
-    // console.log(
-    //   "acAPI帳戶創建成功",
-    //   "[id]:",
-    //   response.data.id,
-    //   "[token]:",
-    //   token
-    // );
-    localStorage.setItem("acToken", token);
-  } catch (err) {
-    console.error("创建账户时发生错误:", err);
-    // 可能需要在这里处理错误，例如重试或通知用户
-  }
-};
-
 //使用 acToken 當 headers 使用攔截器 apiClient 取代 axios
 //取得我的最愛
 export const GetFavoriteIds = async () => {
   const url = `api/me`;
   try {
     const response = await apiClient.get(url);
-    // console.log("用戶收藏清單:", response.data.favoriteEpisodeIds);
+    // console.log("用戶收藏清單:", response.data.favoriteEpisodeIds,response.status);
     localStorage.setItem(
       "userFavoriteList",
       JSON.stringify(response.data.favoriteEpisodeIds)
@@ -86,10 +86,11 @@ export const GetFavoriteIds = async () => {
 
 //取得分類清單
 export const GetCategory = async () => {
+  const acToken = localStorage.getItem("acToken");
   const url = `api/categories`;
   try {
     const response = await apiClient.get(url);
-    // console.log("分類清單:", response.data.categories);
+    // console.log("分類清單:", response.data.categories, response.status);
     localStorage.setItem(
       "userCategoryContent",
       JSON.stringify(response.data.categories)
@@ -106,11 +107,6 @@ export const RemoveFavorite = async (episodeId) => {
   const url = `api/episodes/${episodeId}`;
   try {
     const response = await apiClient.delete(url);
-    // console.log(
-    //   "RemoveFavorite:",
-    //   response,
-    //   "status 200 還出現error? 是為了測試?"
-    // );
     if (response.status === 200) {
       // 更新 localStorage
       const userFavoriteList =
@@ -145,11 +141,7 @@ export const PostFavorite = async (episodeId) => {
   const bodyParam = { episodeId: episodeId };
   try {
     const response = await apiClient.post(url, bodyParam);
-    // console.log(
-    //   "PostFavorite:",
-    //   response,
-    //   "status 200 還出現error? 是為了測試?"
-    // );
+
     if (response.status === 200) {
       // 更新 localStorage
       const userFavoriteList =
@@ -188,16 +180,21 @@ export const AddCategory = async ({ newTitle }) => {
     const response = await apiClient.post(url, bodyParameters);
     if (response.status === 200) {
       // 更新 localStorage
-      // console.log("新增分類回傳結果:", response.data);
+      // console.log("新增分類回傳結果:", response);
       const userCategoryContent =
         JSON.parse(localStorage.getItem("userCategoryContent")) || [];
-      userCategoryContent.push(response.data.category);
+
+      console.log(response.config.data); //{"name":"預設清單"}
+      //response.data 只會回傳success:boolean
+      userCategoryContent.push(response.config.data);
+      console.log(userCategoryContent); //['{"name":"預設清單"}']
 
       localStorage.setItem(
         "userCategoryContent",
         JSON.stringify(userCategoryContent)
       );
-      return { success: true, data: response.data };
+      return { success: true, data: response.config.data };
+      // return { success: true, data: response.data };
     } else {
       return {
         success: false,

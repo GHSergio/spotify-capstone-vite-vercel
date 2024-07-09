@@ -14,15 +14,11 @@ const Main = () => {
     // favoriteList,
     setFavoriteList,
     // activeList,
-
     handleNavigationItem,
-
     activeDropdown,
     handleClickDropdown,
-
     handleActionClick,
     addCardModal,
-
     handleOpenAddCardModal,
     handleCloseAddCardModal,
     // handleConfirmAddCardModal,
